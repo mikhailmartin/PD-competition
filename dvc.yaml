@@ -1,0 +1,19 @@
+stages:
+
+  train_decision_tree_pipe:
+    cmd:
+      - python -m src.models.train_decision_tree_pipe data/raw/PD-data-train.csv models/decision_tree_pipe.pkl
+    deps:
+      - data/raw/PD-data-train.csv
+      - src/models/train_decision_tree_pipe.py
+    outs:
+      - models/decision_tree_pipe.pkl
+
+  train_lgbm_pipe:
+    cmd:
+      - python -m src.models.train_lgbm_pipe data/raw/PD-data-train.csv models/lgbm_pipe.pkl
+    deps:
+      - data/raw/PD-data-train.csv
+      - src/models/train_lgbm_pipe.py
+    outs:
+      - models/lgbm_pipe.pkl

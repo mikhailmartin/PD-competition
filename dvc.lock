@@ -1,0 +1,36 @@
+schema: '2.0'
+stages:
+  train_decision_tree_pipe:
+    cmd:
+    - python -m src.models.train_decision_tree_pipe data/raw/PD-data-train.csv models/decision_tree_pipe.pkl
+    deps:
+    - path: data/raw/PD-data-train.csv
+      hash: md5
+      md5: 0092a0671e990f0902b2e26413c63a17
+      size: 5329268
+    - path: src/models/train_decision_tree_pipe.py
+      hash: md5
+      md5: e7cfbb2d6420bd0971b27df48eb1e8f3
+      size: 1683
+    outs:
+    - path: models/decision_tree_pipe.pkl
+      hash: md5
+      md5: f65f69cf7e9d2b4548e336ab6888b7d6
+      size: 7704
+  train_lgbm_pipe:
+    cmd:
+    - python -m src.models.train_lgbm_pipe data/raw/PD-data-train.csv models/lgbm_pipe.pkl
+    deps:
+    - path: data/raw/PD-data-train.csv
+      hash: md5
+      md5: 0092a0671e990f0902b2e26413c63a17
+      size: 5329268
+    - path: src/models/train_lgbm_pipe.py
+      hash: md5
+      md5: b3c9eec17285f9336cc2b14a47f77647
+      size: 2353
+    outs:
+    - path: models/lgbm_pipe.pkl
+      hash: md5
+      md5: 3c0a1b3888c32431597a05964d579529
+      size: 217987
